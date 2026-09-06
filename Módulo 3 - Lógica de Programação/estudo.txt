@@ -1,0 +1,14 @@
+O que é Lógica de Programaçãp?
+
+Precisamos pensar em qual será a sequência de comandos que precisamos fazer para resolver o seu desafio?
+
+É a sequência de comandos que você vai escrever (programar) para fazer o que você quer!
+
+Lógica de programação é a organização correta do pensamento em uma sequência de passos lógicos e sem erros para que um computador execute uma tarefa. Ela funciona como uma receita de bolo: define ordens exatas que a máquina deve seguir para chegar a um resultado específico.
+
+Conceitos Fundamentais
+- Algoritmos: A sequência finita de passos detalhados para resolver um problema.
+- Variáveis: Espaços de memória usados para guardar dados temporariamente.
+- Condicionais: Regras de decisão do tipo "se algo acontecer, faça isso; caso contrário, faça aquilo".
+- Laços de repetição: Comandos que repetem uma mesma ação várias vezes de forma automática.
+

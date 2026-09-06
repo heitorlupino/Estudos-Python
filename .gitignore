@@ -1,0 +1,41 @@
+# Python cache e artefatos
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+*$py.class
+
+# Ambientes virtuais
+.venv/
+venv/
+env/
+ENV/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Editor / IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*.code-workspace
+
+# Sistema operacional
+.DS_Store
+Thumbs.db
+
+# Logs e temporários
+*.log
+*.tmp
+*.bak
+
+# Arquivos locais de teste e ambiente
+.coverage
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Importante: não ignorar arquivos úteis do projeto
+# como notebooks, CSVs, scripts e resumos que devem aparecer no GitHub
