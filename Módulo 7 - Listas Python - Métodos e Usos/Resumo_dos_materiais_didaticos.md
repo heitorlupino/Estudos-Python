@@ -249,6 +249,7 @@ Você já aprendeu várias coisas, e agora o objetivo é organizar tudo em uma l
 
 É como se o professor estivesse dizendo: “Agora que você já viu os conceitos, aqui está um resumo dos comandos mais importantes para você consultar sempre que precisar.”
 
+
 Esse material ajuda a consolidar o conhecimento e a memorizar as ferramentas mais usadas.
 
 ## 9) Alterações Incrementais de Variáveis (Importante) - Listas 09
@@ -278,6 +279,86 @@ Isso representa o pensamento de que o computador vai atualizando informações c
 - manipulação de dados em laços.
 
 Esse conteúdo ensina que programação não é só “guardar dados”, mas também “atualizar dados” de acordo com o fluxo do programa.
+
+---
+
+## Prática realizada em exercícios de listas
+
+Durante a prática do módulo, além de revisar os métodos e conceitos das listas, foram resolvidos exercícios aplicados de faturamento e análise de dados. Essa etapa foi importante porque ajudou a conectar a teoria com situações reais de programação.
+
+### 1) Faturamento do melhor e do pior mês do ano
+
+Neste exercício, foi criada uma lista com os meses do ano e outra com as vendas de cada mês. Depois, as duas listas de semestre foram unidas em uma única lista de vendas anual.
+
+```python
+meses = ['jan', 'fev', 'mar', 'abr', 'mai', 'jun', 'jul', 'ago', 'set', 'out', 'nov', 'dez']
+vendas_1sem = [25000, 29000, 22200, 17750, 15870, 19900]
+vendas_2sem = [19850, 20120, 17540, 15555, 49051, 9650]
+
+vendas_1sem.extend(vendas_2sem)
+
+maior_valor = max(vendas_1sem)
+menor_valor = min(vendas_1sem)
+print(maior_valor)
+print(menor_valor)
+```
+
+O objetivo era identificar o melhor e o pior mês com base no maior e menor valor de vendas. Esse tipo de lógica é muito comum em análise de dados, porque você precisa encontrar pontos de destaque e também momentos de queda.
+
+### 2) Relacionando meses com vendas e calculando faturamento total
+
+Depois de descobrir os valores extremos, foi necessário relacionar esses valores com os meses correspondentes e calcular o faturamento total do ano.
+
+```python
+i = vendas_1sem.index(maior_valor)
+print("O melhor mês do ano foi {} com {} vendas".format(meses[i], maior_valor))
+
+i = vendas_1sem.index(menor_valor)
+print("O pior mês do ano foi {} com {} vendas".format(meses[i], menor_valor))
+
+fat_total = sum(vendas_1sem)
+print("O faturamento total do ano foi de: R${:.2f}".format(fat_total))
+
+percentual = maior_valor / fat_total
+print("O melhor mês representou {:.1%} das vendas do ano todo".format(percentual))
+```
+
+Esse exercício mostra como usar listas com `index()`, `sum()` e formatação de texto para produzir resultados mais legíveis para o usuário. Também foi possível calcular a participação do melhor mês no faturamento anual.
+
+### 3) Top 3 maiores valores de vendas do ano
+
+Neste exercício, foi preciso descobrir os três maiores valores de vendas, sem olhar manualmente a lista. O método `remove()` foi usado para eliminar o maior valor já encontrado e continuar buscando o próximo.
+
+```python
+top3 = []
+
+maior_valor = max(vendas_1sem)
+top3.append(maior_valor)
+
+vendas_1sem.remove(maior_valor)
+
+maior_valor = max(vendas_1sem)
+top3.append(maior_valor)
+
+vendas_1sem.remove(maior_valor)
+maior_valor = max(vendas_1sem)
+top3.append(maior_valor)
+
+print(top3)
+```
+
+Esse tipo de exercício ajuda a entender como trabalhar com listas dinâmicas, como remover elementos e continuar a análise sem perder o raciocínio da lógica de programação.
+
+### Conclusão da prática
+
+Esses exercícios reforçam que listas não servem apenas para armazenar dados; elas também ajudam a:
+- localizar valores importantes;
+- comparar elementos;
+- calcular totais e porcentagens;
+- organizar resultados para apresentação;
+- resolver problemas reais de forma eficiente.
+
+Ao praticar com listas, o aluno deixa de apenas conhecer os métodos do Python e passa a pensar como resolver problemas usando estruturas de dados de maneira lógica e organizada.
 
 ## 10) O que esse módulo ensina no conjunto
 

@@ -8,9 +8,6 @@ O projeto tem como finalidade registrar o aprendizado em lógica de programaçã
 
 ## Estrutura do repositório
 
-- `Aula_01_HashTag/` - materiais iniciais da primeira aula.
-- `Aula_04_HashTag/` - conteúdos e exercícios da aula 04.
-- `Jupyter_HashTag/` - notebooks e arquivos em Python do ambiente Jupyter.
 - `Módulo 3 - Lógica de Programação/` - fundamentos de lógica e programação.
 - `Módulo 4 - Mais sobre Variáveis/` - tipos de variáveis, conversão e formatação.
 - `Módulo 5 - If Condições em Python/` - estruturas condicionais e tomada de decisão.
