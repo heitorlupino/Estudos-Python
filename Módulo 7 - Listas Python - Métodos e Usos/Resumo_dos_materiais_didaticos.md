@@ -280,6 +280,113 @@ Isso representa o pensamento de que o computador vai atualizando informações c
 
 Esse conteúdo ensina que programação não é só “guardar dados”, mas também “atualizar dados” de acordo com o fluxo do programa.
 
+## 10) Copiar e Igualdade de Listas - Listas 10
+
+Esse tópico é muito importante porque existem duas situações que parecem parecidas, mas são bem diferentes na prática.
+
+Quando você faz:
+
+```python
+lista2 = lista1
+```
+
+você não cria uma nova lista. Você apenas cria outra variável apontando para o mesmo endereço de memória. Ou seja, se alterar `lista1`, a alteração também aparece em `lista2`.
+
+Já quando você faz cópia:
+
+```python
+lista2 = lista1.copy()
+```
+
+ou
+
+```python
+lista2 = lista1[:]
+```
+
+você cria uma lista independente, com os mesmos valores iniciais, mas que pode ser modificada separadamente.
+
+Exemplo:
+
+```python
+lista = ['ipad', 'iphone x', 'apple tv']
+lista2 = lista
+
+lista[1] = 'iphone 11'
+
+print(lista)
+print(lista2)
+```
+
+Nesse caso, as duas variáveis mostram o mesmo resultado, porque são a mesma lista.
+
+Ao copiar, o comportamento muda:
+
+```python
+lista = ['ipad', 'iphone x', 'apple tv']
+lista2 = lista.copy()
+
+lista[1] = 'iphone 11'
+
+print(lista)
+print(lista2)
+```
+
+Agora `lista` e `lista2` ficam diferentes, porque `lista2` foi criada como uma cópia separada.
+
+Esse assunto é fundamental para evitar erros em programas que passam listas entre funções ou elementos do código.
+
+## 11) Listas de Listas - Listas 11
+
+Além de guardar números, strings e outros valores, uma lista também pode guardar outras listas dentro dela. Isso é chamado de lista de listas, ou nested list.
+
+Exemplo:
+
+```python
+vendedores = ['Lira', 'João', 'Diego', 'Alon']
+produtos = ['ipad', 'iphone']
+vendas = [
+    [100, 200],
+    [300, 500],
+    [50, 1000],
+    [900, 10],
+]
+```
+
+Aqui cada vendedor tem uma sublista com suas vendas. Para acessar um valor específico, usamos dois índices:
+
+```python
+vendas_ipad_joao = vendas[1][0]
+print(vendas_ipad_joao)
+```
+
+Essa estrutura é muito útil para organizar dados em tabelas, relatórios e sistemas que guardam informações em linhas e colunas, como:
+- vendas por vendedor;
+- notas por aluno;
+- produtos por categoria;
+- dados de mercado.
+
+Também é possível alterar valores internos da lista de listas:
+
+```python
+vendas[0][1] = 50
+print(vendas)
+```
+
+E adicionar novos itens em uma sublista:
+
+```python
+vendas_mac = [10, 15, 6, 70]
+
+vendas[0].append(vendas_mac[0])
+vendas[1].append(vendas_mac[1])
+vendas[2].append(vendas_mac[2])
+vendas[3].append(vendas_mac[3])
+print(vendas)
+```
+
+Essa estrutura abre várias possibilidades no Python, porque permite trabalhar com dados mais complexos e organizados de forma lógica.
+
 ---
 
 ## Prática realizada em exercícios de listas
@@ -360,7 +467,7 @@ Esses exercícios reforçam que listas não servem apenas para armazenar dados; 
 
 Ao praticar com listas, o aluno deixa de apenas conhecer os métodos do Python e passa a pensar como resolver problemas usando estruturas de dados de maneira lógica e organizada.
 
-## 10) O que esse módulo ensina no conjunto
+## 12) O que esse módulo ensina no conjunto
 
 Quando você soma tudo, percebe que esse módulo está mostrando uma sequência lógica:
 
