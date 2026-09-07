@@ -13,6 +13,7 @@ O projeto tem como finalidade registrar o aprendizado em lógica de programaçã
 - `Módulo 5 - If Condições em Python/` - estruturas condicionais e tomada de decisão.
 - `Módulo 6 - Strings Textos e a importância no Python/` - manipulação de textos e strings.
 - `Módulo 7 - Listas Python - Métodos e Usos/` - listas, índices, operações, ordenação e métodos.
+- `Módulo 8 - Estrutura de Repetição/` - laços `for`, `range()`, `for` sobre listas e textos, condições dentro do laço e `enumerate()`.
 
 ## Tecnologias
 
