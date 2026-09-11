@@ -10,12 +10,16 @@ O Python oferece o comando `for`, que permite repetir instruções de forma orga
 
 ## Conteúdo explicado de forma geral
 
-O módulo 8 foi dividido em quatro partes principais relacionadas ao uso do `for`:
+O módulo 8 foi dividido em partes relacionadas ao uso do `for`:
 
 1. Estrutura de repetição `for` com `range()`;
 2. Uso do `for` para percorrer listas e textos;
 3. Combinação de `for` com `if` para analisar dados;
-4. Uso de `enumerate()` para percorrer itens e índices ao mesmo tempo.
+4. Uso de `enumerate()` para percorrer itens e índices ao mesmo tempo;
+5. Escolha entre as diferentes formas de utilizar o `for`;
+6. Uso de `for` dentro de outro `for`;
+7. Interrupção e controle do laço com `break` e `continue`;
+8. Exercícios de fixação com listas, análises e cálculos.
 
 Essas etapas mostram como o computador consegue repetir tarefas automaticamente, acessar itens de uma coleção e tomar decisões dentro do mesmo processo.
 
@@ -233,9 +237,100 @@ Essa comparação ajuda a escolher a estrutura mais simples para cada situação
 
 ---
 
+## 5) For dentro de For - Laços aninhados
+
+Quando uma lista contém outras listas, pode ser necessário percorrer primeiro a lista externa e depois cada lista interna. Para isso, usamos um `for` dentro de outro `for`:
+
+```python
+for item in lista:
+    for item2 in item:
+        faça alguma coisa
+```
+
+O material aplica essa estrutura ao controle de estoque de várias fábricas. Cada fábrica possui uma lista com a quantidade de produtos em estoque, e o programa verifica se existe algum produto abaixo do nível mínimo:
+
+```python
+for i, lista in enumerate(estoque):
+    for qtde in lista:
+        if qtde < nivel_minimo:
+            if fabricas[i] not in fabricas_abaixo_nivel:
+                fabricas_abaixo_nivel.append(fabricas[i])
+```
+
+Nesse caso, o primeiro laço identifica a fábrica e o segundo analisa cada quantidade de estoque. A verificação evita adicionar a mesma fábrica mais de uma vez à lista de resultados.
+
+Esse padrão é útil para trabalhar com:
+- listas de listas;
+- tabelas e matrizes;
+- dados separados por empresa, turma ou categoria;
+- estoques de várias fábricas;
+- qualquer coleção que possua níveis ou grupos internos.
+
+---
+
+## 6) Break e Continue - Controlando a repetição
+
+Além de executar um laço, o Python permite controlar o seu fluxo com duas instruções:
+
+- `break`: interrompe e finaliza o `for` imediatamente;
+- `continue`: interrompe apenas a repetição atual e passa para o próximo item.
+
+O `break` pode ser usado para encerrar uma verificação assim que uma condição for encontrada. No exemplo do material, a loja só recebe um bônus se todas as vendas estiverem acima da meta. Ao encontrar uma venda abaixo da meta, o programa informa que não há bônus e encerra o laço:
+
+```python
+for venda in vendas:
+    if venda < meta:
+        print('A loja não ganhou bônus')
+        break
+```
+
+O `continue` é útil quando determinados itens devem ser ignorados, sem interromper o processamento dos demais. Para exibir apenas as vendas que atingiram a meta, o programa pula as vendas abaixo dela:
+
+```python
+for venda in vendas:
+    if venda < meta:
+        continue
+    print(venda)
+```
+
+Assim, `break` encerra todo o laço, enquanto `continue` apenas pula a iteração atual.
+
+---
+
+## 7) Exercícios de aplicação
+
+Os exercícios do módulo colocam os laços em situações próximas de problemas reais. Entre as propostas estão:
+
+### Cadastro de hóspedes
+
+O programa pergunta quantas pessoas ficarão no quarto e usa `for` com `range()` para solicitar o nome e o CPF de cada pessoa. Ao final, cria uma lista de registros, em que cada item contém o nome e o CPF do hóspede.
+
+### Análise de vendas
+
+Uma lista com vendedores e valores vendidos é percorrida para identificar quem atingiu a meta. Em outro exercício, o programa calcula o percentual de vendedores que atingiram a meta e encontra o vendedor com maior volume de vendas.
+
+### Comparação de vendas entre anos
+
+Com `enumerate()`, o programa relaciona produtos às vendas de 2019 e 2020, identifica os produtos que cresceram e calcula o percentual de crescimento.
+
+### Exercícios extras com listas
+
+Os materiais também propõem problemas que combinam laços, índices, condições e cálculos, como:
+- exibir vendas e calcular a média de vendedores;
+- calcular a média de cada aluno e contar quantos atingiram a média mínima;
+- analisar funcionários com base em idade, salário e média salarial;
+- identificar meses com temperatura acima da média nacional;
+- calcular abonos, total gasto, quantidade de funcionários e maior abono;
+- comparar consumo de veículos, litros necessários e custo de uma viagem;
+- contar vendedores em faixas salariais de acordo com suas comissões.
+
+Esses exercícios reforçam que o `for` pode ser combinado com listas auxiliares, acumuladores, contadores, `sum()`, `len()`, comparações e formatação de resultados.
+
+---
+
 ## Conceitos-chave aprendidos no módulo
 
-O módulo 8 trabalha com cinco ideias centrais:
+O módulo 8 trabalha com oito ideias centrais:
 
 ### 1. Repetição
 Você usa `for` para executar o mesmo bloco de código várias vezes.
@@ -252,6 +347,15 @@ Você consegue processar muitos dados sem repetir manualmente o código.
 ### 5. Índices com `enumerate()`
 Você consegue acessar o índice e o valor de cada item simultaneamente, facilitando o trabalho com listas relacionadas.
 
+### 6. Laços aninhados
+Você pode percorrer estruturas com listas dentro de listas usando um `for` dentro de outro `for`.
+
+### 7. Controle do fluxo
+Você usa `break` para encerrar um laço e `continue` para pular apenas a iteração atual.
+
+### 8. Processamento com acumuladores e contadores
+Você pode somar valores, contar ocorrências, criar listas filtradas e calcular médias e percentuais durante a repetição.
+
 ---
 
 ## Aplicações práticas
@@ -264,6 +368,11 @@ A lógica ensinada no módulo é usada em muitos contextos, como:
 - validação de dados;
 - aplicação de impostos e outros cálculos sobre produtos;
 - identificação de produtos abaixo do estoque mínimo;
+- análise de estoques organizados por fábrica;
+- cadastro de várias pessoas em um único quarto;
+- comparação de vendas entre anos;
+- cálculo de médias, percentuais, comissões e abonos;
+- comparação de consumo e custo de veículos;
 - automatização de tarefas repetitivas.
 
 Em programação, esse tipo de estrutura é muito importante porque permite trabalhar com grandes quantidades de informação de forma organizada.
@@ -277,8 +386,11 @@ O módulo 8 é essencial porque introduz a ideia de que um programa pode repetir
 A partir daqui, o aluno começa a entender a lógica mais realista da programação:
 - percorrer dados;
 - escolher entre percorrer apenas os itens, usar índices ou obter os dois com `enumerate()`;
+- percorrer listas de listas com laços aninhados;
+- interromper ou pular partes da repetição com `break` e `continue`;
 - tomar decisões;
 - processar listas;
+- acumular resultados e gerar listas filtradas;
 - responder perguntas com base em informações.
 
 Essa base é fundamental para os próximos módulos, porque tudo o que vier depois vai depender da compreensão de laços, condições e processamento de dados.
